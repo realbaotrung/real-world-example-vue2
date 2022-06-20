@@ -1,6 +1,6 @@
-import ApiService from './api.service';
+import {ApiService} from './api.service';
 
-const CommentsService = {
+export const CommentsService = {
   get(slug) {
     if (typeof slug !== 'string') {
       throw Error(
@@ -19,5 +19,3 @@ const CommentsService = {
     return ApiService.delete(`articles/${slug}/comments/${commentId}`);
   },
 };
-
-export default CommentsService;

@@ -1,12 +1,11 @@
 import Vue from 'vue';
-import store from './store';
+import store from './store/store';
 import router from './router';
 import './registerServiceWorker';
 
-import ApiService from './services/api.service';
+import {ApiService} from './services';
 
-import DateFilter from './utils/filters/date.filter';
-import ErrorFilter from './utils/filters/error.filter';
+import filter from './utils/filters';
 
 import App from './App.vue';
 
@@ -14,8 +13,8 @@ ApiService.init();
 
 Vue.config.productionTip = false;
 
-Vue.filter('data', DateFilter);
-Vue.filter('error', ErrorFilter);
+Vue.filter('data', filter.formatDate);
+Vue.filter('error', filter.formatErrorValue);
 
 new Vue({
   router,

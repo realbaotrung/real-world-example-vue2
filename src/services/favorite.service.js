@@ -1,6 +1,6 @@
-import ApiService from './api.service';
+import {ApiService} from './api.service';
 
-const FavoriteService = {
+export const FavoriteService = {
   add(slug) {
     return ApiService.post(`articles/${slug}/favorite`);
   },
@@ -8,5 +8,3 @@ const FavoriteService = {
     return ApiService.delete(`articles/${slug}/favorite`);
   },
 };
-
-export default FavoriteService;

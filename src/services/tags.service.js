@@ -1,9 +1,7 @@
-import ApiService from './api.service';
+import {ApiService} from './api.service';
 
-const TagsService = {
+export const TagsService = {
   get() {
     return ApiService.get('tags');
   },
 };
-
-export default TagsService;

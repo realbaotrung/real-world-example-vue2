@@ -1,6 +1,6 @@
-import ApiService from './api.service';
+import {ApiService} from './api.service';
 
-const ArticlesService = {
+export const ArticlesService = {
   query(type, params) {
     return ApiService.query(
       'articles' + `${type === 'feed' ? '/feed' : ''}`,
@@ -20,8 +20,6 @@ const ArticlesService = {
     return ApiService.delete(`articles/${slug}`);
   },
 };
-
-export default ArticlesService;
 
 /*
 eslint

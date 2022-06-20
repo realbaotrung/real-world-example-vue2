@@ -1,3 +1,3 @@
-export default (errorValue) => {
+export const formatErrorValue = (errorValue) => {
   return `${errorValue[0]}`;
 };

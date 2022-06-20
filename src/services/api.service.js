@@ -5,7 +5,7 @@ import {getItemFromLS, storageItem} from '@/utils/storage.utils';
 
 const API_URL = process.env.VUE_APP_API_URL;
 
-const ApiService = {
+export const ApiService = {
   init() {
     Vue.use(VueAxios, axios);
     Vue.axios.defaults.baseURL = API_URL;
@@ -53,7 +53,5 @@ const ApiService = {
     }
   },
 };
-
-export default ApiService;
 
 /* eslint dot-notation: 0 */
