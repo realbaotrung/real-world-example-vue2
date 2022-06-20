@@ -7,7 +7,7 @@ import {ApiService} from './services';
 
 import filter from './utils/filters';
 
-import App from './App.vue';
+import AppLayout from './layout/index.vue';
 
 ApiService.init();
 
@@ -19,5 +19,5 @@ Vue.filter('error', filter.formatErrorValue);
 new Vue({
   router,
   store,
-  render: (h) => h(App),
+  render: (h) => h(AppLayout),
 }).$mount('#app');
