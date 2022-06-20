@@ -20,7 +20,8 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'prettier/prettier': 0,
     'prefer-destructuring': 0,
-    "no-plusplus": 0,
+    'no-plusplus': 0,
+    'no-useless-concat': 0,
   },
   overrides: [
     {

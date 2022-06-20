@@ -2,9 +2,7 @@
 // ALL LOCAL STORAGE METHODS
 // ===========================================================================
 export const storageItem = {
-  auth: 'app/auth',
-  accessToken: 'app/accessToken',
-  refreshToken: 'app/refreshToken',
+  ID_TOKEN_KEY: "id_token",
 };
 
 export const getItemFromLS = (itemName) => {
