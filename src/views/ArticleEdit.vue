@@ -1,7 +1,5 @@
 <template>
-  <div class="editor-page">
-    Hello from article-editor-page
-  </div>
+  <div class="editor-page">Hello from article-editor-page</div>
 </template>
 
 <script>
@@ -9,7 +7,6 @@
 
 export default {
   name: 'rwv-article-edit',
-  components: {
-  },
+  components: {},
 };
 </script>

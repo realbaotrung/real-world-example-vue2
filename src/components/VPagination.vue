@@ -1,11 +1,8 @@
 <template>
-  <div>
-    Hello from v-pagination-component
-  </div>
+  <div>Hello from v-pagination-component</div>
 </template>
 
 <script>
-
 export default {
   name: 'rwv-v-pagination',
 };

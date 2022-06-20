@@ -1,19 +1,21 @@
 import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
 import store from './store';
+import router from './router';
 import './registerServiceWorker';
+
+import ApiService from './services/api.service';
 
 import DateFilter from './utils/filters/date.filter';
 import ErrorFilter from './utils/filters/error.filter';
-import ApiService from './services/api.service';
+
+import App from './App.vue';
+
+ApiService.init();
 
 Vue.config.productionTip = false;
 
-Vue.filter("data", DateFilter);
-Vue.filter("error", ErrorFilter);
-
-ApiService.init();
+Vue.filter('data', DateFilter);
+Vue.filter('error', ErrorFilter);
 
 new Vue({
   router,

@@ -2,7 +2,7 @@
 // ALL LOCAL STORAGE METHODS
 // ===========================================================================
 export const storageItem = {
-  ID_TOKEN_KEY: "id_token",
+  ID_TOKEN_KEY: 'id_token',
 };
 
 export const getItemFromLS = (itemName) => {
@@ -18,4 +18,4 @@ export const removeItemFromLS = (itemName) => {
   localStorage.removeItem(itemName);
 };
 
-export default { getItemFromLS, setItemToLS, removeItemFromLS, storageItem }
+export default {getItemFromLS, setItemToLS, removeItemFromLS, storageItem};

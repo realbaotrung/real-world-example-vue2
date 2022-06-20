@@ -1,14 +1,10 @@
 <template>
-  <div class="profile-page">
-    Hello from profile-articles-page
-  </div>
+  <div class="profile-page">Hello from profile-articles-page</div>
 </template>
 
 <script>
-
 export default {
   name: 'rwv-profile-articles',
-  components: {
-  },
+  components: {},
 };
 </script>

@@ -11,9 +11,8 @@ import TheHeader from './components/TheHeader.vue';
 import TheFooter from './components/TheFooter.vue';
 
 export default {
-    name: "App",
-    components: { TheHeader, TheFooter }
-}
-
+  name: 'App',
+  components: {TheHeader, TheFooter},
+};
 </script>
 <style lang="scss"></style>

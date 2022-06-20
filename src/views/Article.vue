@@ -1,14 +1,10 @@
 <template>
-  <div class="article-page">
-    Hello from article-page
-  </div>
+  <div class="article-page">Hello from article-page</div>
 </template>
 
 <script>
-
 export default {
   name: 'rwv-article',
-  components: {
-  },
+  components: {},
 };
 </script>

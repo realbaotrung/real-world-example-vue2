@@ -1,7 +1,5 @@
 <template>
-  <div class="home-global">
-    Hello from home-global-page
-  </div>
+  <div class="home-global">Hello from home-global-page</div>
 </template>
 
 <script>
@@ -9,7 +7,6 @@
 
 export default {
   name: 'rwv-home-global',
-  components: {
-  },
+  components: {},
 };
 </script>
