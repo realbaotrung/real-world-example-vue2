@@ -1,19 +1,11 @@
 export default {
   namespaced: true,
 
-  state: {
+  state: {},
 
-  },
+  getters: {},
 
-  getters: {
+  mutations: {},
 
-  },
-
-  mutations: {
-
-  },
-
-  actions: {
-
-  },
-}
+  actions: {},
+};
