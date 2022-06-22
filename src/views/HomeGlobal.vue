@@ -1,12 +1,12 @@
 <template>
-  <div class="home-global">Hello from home-global-page</div>
+  <div class="home-global"><RwvArticleList type="all"/></div>
 </template>
 
 <script>
-// @ is an alias to /src
+import RwvArticleList from '@/components/ArticleList.vue'
 
 export default {
   name: 'rwv-home-global',
-  components: {},
+  components: {RwvArticleList},
 };
 </script>

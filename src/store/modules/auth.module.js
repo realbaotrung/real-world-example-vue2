@@ -55,7 +55,7 @@ export default {
         try {
           ApiService.setHeader();
 
-          const data = await ApiService.get('user');
+          const { data } = await ApiService.get('user');
 
           commit('SET_AUTH', data.user);
         } catch (error) {

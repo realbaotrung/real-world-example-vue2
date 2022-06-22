@@ -78,6 +78,7 @@ export default {
 
     ...mapGetters({
       isAuthenticated: 'auth/isAuthenticated',
+
       tags: 'home/tags',
     }),
   },

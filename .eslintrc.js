@@ -23,6 +23,7 @@ module.exports = {
     'no-plusplus': 0,
     'no-useless-concat': 0,
     'import/prefer-default-export': 0,
+    'no-param-reassign': 0
   },
   overrides: [
     {

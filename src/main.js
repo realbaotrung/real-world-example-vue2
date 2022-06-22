@@ -5,7 +5,7 @@ import './registerServiceWorker';
 
 import {ApiService} from './services';
 
-import filter from './utils/filters';
+import filters from './utils/filters';
 
 import AppLayout from './layout/index.vue';
 
@@ -13,8 +13,8 @@ ApiService.init();
 
 Vue.config.productionTip = false;
 
-Vue.filter('data', filter.formatDate);
-Vue.filter('error', filter.formatErrorValue);
+Vue.filter('date', filters.formatDate);
+Vue.filter('error', filters.formatErrorValue);
 
 router.beforeEach((to, from, next) =>
   Promise.all([store.dispatch('auth/checkAuth')]).then(next),

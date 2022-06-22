@@ -5,6 +5,7 @@
 <script>
 export default {
   name: 'rwv-article',
+  
   components: {},
 };
 </script>

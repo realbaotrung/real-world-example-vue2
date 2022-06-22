@@ -1,9 +1,94 @@
 <template>
-  <div>Hello from article-meta-component</div>
+  <div class="article-meta">
+    <router-link
+      :to="{name: 'profile', params: {username: article.author.username}}"
+    >
+      <img :src="article.author.image" alt="author" />
+    </router-link>
+    <div class="info">
+      <router-link
+        :to="{name: 'profile', params: {username: article.author.username}}"
+        class="author"
+      >
+        {{ article.author.username }}
+      </router-link>
+      <span class="date">{{ article.createdAt | date }}</span>
+    </div>
+    <RwvArticleActions
+      v-if="haveAction"
+      :article="article"
+      :canModify="isCurrentUser()"
+    />
+    <button
+      v-else
+      class="btn btn-sm pull-xs-right"
+      @click="toggleFavorite"
+      :class="{
+        'btn-primary': article.favorited,
+        'btn-outline-primary': !article.favorited,
+      }"
+    >
+      <i class="ion-heart"></i>
+      <span class="counter"> {{ article.favoritesCount }} </span>
+    </button>
+  </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex';
+import RwvArticleActions from '@/components/ArticleActions.vue';
+
 export default {
   name: 'rwv-article-meta',
+
+  components: {
+    RwvArticleActions,
+  },
+
+  props: {
+    article: {
+      type: Object,
+      required: true,
+    },
+
+    haveAction: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
+  computed: {
+    ...mapGetters({
+      currentUser: 'auth/currentUser',
+      isAuthenticated: 'auth/isAuthenticated',
+    }),
+  },
+
+  methods: {
+    isCurrentUser() {
+      if (this.currentUser.username && this.article.author.username) {
+        return this.currentUser.username === this.article.author.username;
+      }
+      return false;
+    },
+
+    toggleFavorite() {
+      if (!this.isAuthenticated) {
+        this.$router.push({name: 'login'});
+        return;
+      }
+
+      const action = this.article.favorited
+        ? 'article/favoriteAdd'
+        : 'article/favoriteRemove';
+
+      this.$store.dispatch(action, this.article.slug);
+    },
+  },
 };
+
+/*
+eslint
+  no-useless-return:0
+*/
 </script>

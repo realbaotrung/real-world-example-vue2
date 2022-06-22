@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="homeRoute" :class="className">{{ name }}</router-link>
+  <router-link :to="homeRoute" :class="tagClass">{{ name }}</router-link>
 </template>
 
 <script>
@@ -11,12 +11,11 @@ export default {
       type: String,
       required: true,
     },
-
-    className: {
-      type: String,
-      default: 'tag-pill tag-default',
-    },
   },
+
+  data:() => ({
+    tagClass: 'tag-pill tag-default'
+  }),
 
   computed: {
     homeRoute() {
