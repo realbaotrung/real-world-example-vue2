@@ -14,6 +14,22 @@ export default {
   },
 
   actions: {
+    // TODO: articleSlug and development next
+
+    // async fetchArticle({commit}, articleSlug, prevArticle = {}) {
+      // if (prevArticle !== {}) {
+        
+      // }
+    //   try {
+    //     const {data} = await FavoriteService.add(articleSlug);
+
+    //     commit('home/UPDATE_ARTICLE_IN_LIST', data.article, {root: true});
+    //     commit('SET_ARTICLE', data.article);
+    //   } catch (error) {
+    //     throw new Error(error);
+    //   }
+    // },
+
     async favoriteAdd({commit}, slug) {
       try {
         const {data} = await FavoriteService.add(slug);
