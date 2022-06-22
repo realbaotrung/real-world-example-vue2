@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="homeRoute" :class="className"></router-link>
+  <router-link :to="homeRoute" :class="className">{{ name }}</router-link>
 </template>
 
 <script>

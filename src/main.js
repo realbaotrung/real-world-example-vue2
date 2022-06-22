@@ -16,6 +16,10 @@ Vue.config.productionTip = false;
 Vue.filter('data', filter.formatDate);
 Vue.filter('error', filter.formatErrorValue);
 
+router.beforeEach((to, from, next) =>
+  Promise.all([store.dispatch('auth/checkAuth')]).then(next),
+);
+
 new Vue({
   router,
   store,

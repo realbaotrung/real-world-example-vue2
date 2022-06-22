@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <AppHeader />
-    <router-view />
-    <AppFooter />
+    <RwvTheHeader />
+    <router-view></router-view>
+    <RwvTheFooter />
   </div>
 </template>
 
 <script>
-import AppHeader from './TheHeader.vue';
-import AppFooter from './TheFooter.vue';
+import RwvTheHeader from './TheHeader.vue';
+import RwvTheFooter from './TheFooter.vue';
 
 export default {
   name: 'AppLayout',
-  components: {AppHeader, AppFooter},
+  components: {RwvTheHeader, RwvTheFooter},
 };
 </script>

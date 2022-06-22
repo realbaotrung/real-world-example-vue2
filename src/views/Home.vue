@@ -47,8 +47,7 @@
           <div class="sidebar">
             <p>Popular Tags</p>
             <div class="tag-list">
-              <RwvTag v-for="(tag, index) in tags" :name="tag" :key="index">
-              </RwvTag>
+              <RwvTag v-for="(tag, index) in tags" :name="tag" :key="index" />
             </div>
           </div>
         </div>
@@ -68,7 +67,7 @@ export default {
     RwvTag,
   },
 
-  mounted() {
+  created() {
     this.$store.dispatch('home/fetchTags');
   },
 
