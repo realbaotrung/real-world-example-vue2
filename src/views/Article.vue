@@ -23,6 +23,7 @@ export default {
     },
   },
 
+
   // TODO: review fetching Before navigation
   // https://v3.router.vuejs.org/guide/advanced/data-fetching.html#fetching-before-navigation
   beforeRouteEnter(to, from, next) {
