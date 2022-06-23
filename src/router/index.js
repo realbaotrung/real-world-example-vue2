@@ -52,8 +52,8 @@ const routes = [
         component: () => import('@/views/ProfileArticles.vue'),
       },
       {
-        path: 'profile-favorites',
-        name: 'favorites',
+        path: 'favorites',
+        name: 'profile-favorites',
         component: () => import('@/views/ProfileFavorites.vue'),
       },
     ],

@@ -48,19 +48,58 @@ export default {
   },
 
   actions: {
+    async login({commit}, payload) {
+      try {
+        const {data} = await ApiService.post('users/login', {user: payload});
+
+        commit('SET_AUTH', data.user);
+
+        return;
+      } catch (error) {
+        // TODO: see error handling
+        commit('SET_ERROR', error.response.data.errors);
+        throw new Error(error);
+      }
+    },
+
+    async logout({commit}) {
+      try {
+        commit('PURGE_AUTH');
+
+        return;
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+
+    async register({commit}, payload) {
+      try {
+        const {data} = await ApiService.post('users', {user: payload});
+
+        commit('SET_AUTH', data.user);
+
+        return;
+      } catch (error) {
+        commit('SET_ERROR', error.response.data.errors);
+        throw new Error(error);
+      }
+    },
+
     async checkAuth({commit}) {
       if (!getItemFromLS(storageItem.ID_TOKEN_KEY)) {
         commit('PURGE_AUTH');
-      } else {
-        try {
-          ApiService.setHeader();
+        return;
+      }
+      try {
+        ApiService.setHeader();
 
-          const { data } = await ApiService.get('user');
+        const {data} = await ApiService.get('user');
 
-          commit('SET_AUTH', data.user);
-        } catch (error) {
-          commit('SET_ERROR', error.data.errors);
-        }
+        commit('SET_AUTH', data.user);
+        return;
+      } catch (error) {
+        commit('SET_ERROR', error.response.data.errors);
+        throw new Error(error);
       }
     },
   },

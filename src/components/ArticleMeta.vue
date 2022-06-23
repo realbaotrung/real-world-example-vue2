@@ -17,7 +17,7 @@
     <RwvArticleActions
       v-if="haveAction"
       :article="article"
-      :canModify="isCurrentUser()"
+      :canModify="isCurrentUser"
     />
     <button
       v-else
@@ -62,15 +62,16 @@ export default {
       currentUser: 'auth/currentUser',
       isAuthenticated: 'auth/isAuthenticated',
     }),
-  },
 
-  methods: {
     isCurrentUser() {
       if (this.currentUser.username && this.article.author.username) {
         return this.currentUser.username === this.article.author.username;
       }
       return false;
     },
+  },
+
+  methods: {
 
     toggleFavorite() {
       if (!this.isAuthenticated) {

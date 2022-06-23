@@ -74,7 +74,7 @@ export default {
 
         commit('FETCH_END', data);
 
-        return data;
+        return;
       } catch (error) {
         throw new Error(error);
       }
@@ -83,7 +83,10 @@ export default {
     async fetchTags({commit}) {
       try {
         const {data} = await TagsService.get();
+
         commit('SET_TAGS', data.tags);
+
+        return;
       } catch (error) {
         throw new Error(error);
       }

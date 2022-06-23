@@ -1,10 +1,23 @@
 <template>
-  <div class="profile-page">Hello from profile-favorites-page</div>
+  <div class="profile-page">
+    <RwvArticleList :favorites="favorites" :items-per-page="5" />
+  </div>
 </template>
 
 <script>
+import RwvArticleList from '@/components/ArticleList.vue';
+
 export default {
   name: 'rwv-profile-favorites',
-  components: {},
+
+  components: {
+    RwvArticleList
+  },
+
+  computed: {
+    favorites() {
+      return this.$route.params.username;
+    }
+  }
 };
 </script>

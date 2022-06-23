@@ -1,34 +1,91 @@
-import {ArticlesService, FavoriteService} from '@/services';
+import {ArticlesService, CommentsService, FavoriteService} from '@/services';
 
 export default {
   namespaced: true,
 
-  state: {},
+  state: {
+    article: {
+      author: {},
+      title: '',
+      description: '',
+      body: '',
+      tagList: [],
+    },
 
-  getters: {},
+    comments: [],
+  },
+
+  getters: {
+    article(state) {
+      return state.article;
+    },
+
+    comments(state) {
+      return state.comments;
+    },
+  },
 
   mutations: {
     SET_ARTICLE(state, payload) {
       state.article = payload;
     },
+
+    SET_COMMENTS(state, payload) {
+      state.comments = payload;
+    },
   },
 
   actions: {
-    // TODO: articleSlug and development next
+    async fetchArticle({commit}, articleSlug, prevArticle) {
+      if (prevArticle !== undefined) {
+        commit('SET_ARTICLE', prevArticle);
+        return;
+      }
 
-    // async fetchArticle({commit}, articleSlug, prevArticle = {}) {
-      // if (prevArticle !== {}) {
-        
-      // }
-    //   try {
-    //     const {data} = await FavoriteService.add(articleSlug);
+      try {
+        const {data} = await ArticlesService.get(articleSlug);
 
-    //     commit('home/UPDATE_ARTICLE_IN_LIST', data.article, {root: true});
-    //     commit('SET_ARTICLE', data.article);
-    //   } catch (error) {
-    //     throw new Error(error);
-    //   }
-    // },
+        commit('SET_ARTICLE', data.article);
+
+        return;
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+
+    async fetchComments({commit}, articleSlug) {
+      try {
+        const {data} = await CommentsService.get(articleSlug);
+
+        commit('SET_COMMENTS', data.comments);
+
+        return;
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+
+    async commentCreate({dispatch}, payload) {
+      try {
+        await CommentsService.post(payload.slug, payload.comment);
+
+        dispatch('fetchComments', payload.slug);
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
+
+    async commentDestroy({dispatch}, payload) {
+      try {
+        await CommentsService.destroy(payload.slug, payload.commentId);
+
+        dispatch('fetchComments', payload.slug);
+
+        return;
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
 
     async favoriteAdd({commit}, slug) {
       try {
@@ -36,6 +93,8 @@ export default {
 
         commit('home/UPDATE_ARTICLE_IN_LIST', data.article, {root: true});
         commit('SET_ARTICLE', data.article);
+
+        return;
       } catch (error) {
         throw new Error(error);
       }
@@ -49,6 +108,8 @@ export default {
         // in the Home View
         commit('home/UPDATE_ARTICLE_IN_LIST', data.article, {root: true});
         commit('SET_ARTICLE', data.article);
+
+        return;
       } catch (error) {
         throw new Error(error);
       }
@@ -56,10 +117,12 @@ export default {
 
     async articleDelete(context, payload) {
       try {
-        await ArticlesService.destroy(payload)
+        await ArticlesService.destroy(payload);
+
+        return;
       } catch (error) {
-        throw new Error(error)
+        throw new Error(error);
       }
-    }
+    },
   },
 };

@@ -17,20 +17,15 @@ export const ApiService = {
     )}`;
   },
 
+  // TODO: Review Custom Error handling
+  // https://javascript.info/custom-errors#wrapping-exceptions
+
   async query(resource, params) {
-    try {
-      return Vue.axios.get(resource, params);
-    } catch (error) {
-      throw new Error(`[RMV] ApiService ${error}`);
-    }
+    return Vue.axios.get(resource, params);
   },
 
   async get(resource, slug = '') {
-    try {
-      return Vue.axios.get(`${resource}/${slug}`);
-    } catch (error) {
-      throw new Error(`[RMV] ApiService ${error}`);
-    }
+    return Vue.axios.get(`${resource}/${slug}`);
   },
 
   async post(resource, params) {
@@ -46,11 +41,7 @@ export const ApiService = {
   },
 
   async delete(resource) {
-    try {
-      return Vue.axios.delete(resource);
-    } catch (error) {
-      throw new Error(`[RMV] ApiService ${error}`);
-    }
+    return Vue.axios.delete(resource);
   },
 };
 
