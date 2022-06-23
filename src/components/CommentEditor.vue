@@ -55,7 +55,7 @@ export default {
 
         return;
       } catch (error) {
-        this.errors = error.data.errors;
+        this.errors = error.response.data.errors;
       }
     }
   }

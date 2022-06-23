@@ -63,13 +63,7 @@ export default {
     },
 
     async logout({commit}) {
-      try {
-        commit('PURGE_AUTH');
-
-        return;
-      } catch (error) {
-        throw new Error(error);
-      }
+      commit('PURGE_AUTH');
     },
 
     async register({commit}, payload) {
