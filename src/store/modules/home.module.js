@@ -69,7 +69,7 @@ export default {
 
         const {data} = await ArticlesService.query(
           payload.type,
-          payload.filter,
+          payload.filters,
         );
 
         commit('FETCH_END', data);
