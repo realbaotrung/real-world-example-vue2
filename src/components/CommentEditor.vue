@@ -22,6 +22,12 @@
 <script>
 import RwvListErrors from '@/components/ListErrors.vue';
 
+// TODO: Fix bug :
+// 1. After create a new Article, we go to the route .../article/new-article-has-created
+//    [Vue warn]: Error in data(): "TypeError: Cannot read properties of undefined (reading 'content')"
+// 2. Cannot show author image
+// 3. Can not post a comment...
+
 export default {
   name: 'rwv-comment-editor',
 
@@ -53,9 +59,10 @@ export default {
         this.comment = null;
         this.errors = {};
 
-        return;
+        return true;
       } catch (error) {
         this.errors = error.response.data.errors;
+        return false;
       }
     }
   }

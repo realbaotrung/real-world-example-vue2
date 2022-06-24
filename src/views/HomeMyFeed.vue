@@ -1,10 +1,17 @@
 <template>
-  <div class="home-my-feed">Hello from home-my-feed-page</div>
+  <div class="home-my-feed"><RwvArticleList type="feed" /></div>
 </template>
 
+
 <script>
+import RwvArticleList from '@/components/ArticleList.vue'
+
 export default {
   name: 'rwv-home-my-feed',
-  components: {},
+
+  components: {
+    RwvArticleList,
+  },
+
 };
 </script>

@@ -16,6 +16,7 @@ module.exports = {
     parser: '@babel/eslint-parser',
   },
   rules: {
+    'vuejs-accessibility/click-events-have-key-events': 0,
     'vuejs-accessibility/form-control-has-label': 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',

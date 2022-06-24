@@ -28,7 +28,7 @@ export default {
 
     errorsMessage(state) {
       return state.errors;
-    }
+    },
   },
 
   mutations: {
@@ -55,6 +55,8 @@ export default {
     async login({commit}, payload) {
       try {
         const {data} = await ApiService.post('users/login', {user: payload});
+
+        setItemToLS(storageItem.ID_TOKEN_KEY, data.user.token);
 
         commit('SET_AUTH', data.user);
 
@@ -84,7 +86,6 @@ export default {
     },
 
     async checkAuth({commit}) {
-      console.log('token', getItemFromLS(storageItem.ID_TOKEN_KEY));
       if (!getItemFromLS(storageItem.ID_TOKEN_KEY)) {
         // commit('PURGE_AUTH');
         return;
@@ -98,6 +99,33 @@ export default {
         return;
       } catch (error) {
         commit('SET_ERROR', error.response.data.errors);
+        throw new Error(error);
+      }
+    },
+
+    async updateUser({commit}, payload) {
+      try {
+        const {email, username, password, image, bio} = payload;
+
+        const user = {
+          email,
+          username,
+          password,
+          image,
+          bio,
+        };
+
+        if (password) {
+          user.password = password;
+        }
+
+        const {data} = await ApiService.put('user', JSON.stringify(user));
+
+        commit('SET_AUTH', data.user);
+
+        return;
+      } catch (error) {
+        commit('SET_ERROR', error.response.data);
         throw new Error(error);
       }
     },

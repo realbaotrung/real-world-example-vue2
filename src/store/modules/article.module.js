@@ -33,6 +33,28 @@ export default {
     SET_COMMENTS(state, payload) {
       state.comments = payload;
     },
+
+    TAG_ADD(state, payload) {
+      state.article.tagList = state.article.tagList.concat([payload]);
+    },
+
+    TAG_REMOVE(state, payload) {
+      state.article.tagList = state.article.tagList.filter(
+        (t) => t !== payload,
+      );
+    },
+
+    RESET_STATE(state) {
+      state.article = {
+        author: {},
+        title: '',
+        description: '',
+        body: '',
+        tagList: [],
+      };
+
+      state.comments = [];
+    },
   },
 
   actions: {
@@ -115,6 +137,22 @@ export default {
       }
     },
 
+    async articlePublish(context, payload) {
+      return ArticlesService.create(payload);
+    },
+
+    async articleEdit({state}) {
+      return ArticlesService.update(state.article.slug, state.article);
+    },
+
+    async articleEditAddTag({commit}, payload) {
+      commit('TAG_ADD', payload);
+    },
+
+    async articleEditRemoveTag({commit}, payload) {
+      commit('TAG_REMOVE', payload);
+    },
+
     async articleDelete(context, payload) {
       try {
         await ArticlesService.destroy(payload);
@@ -123,6 +161,10 @@ export default {
       } catch (error) {
         throw new Error(error);
       }
+    },
+
+    async articleResetState({commit}) {
+      commit('RESET_STATE');
     },
   },
 };
