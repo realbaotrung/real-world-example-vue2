@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import {mapGetters} from 'vuex';
 
 export default {
   name: 'rwv-login',
@@ -65,14 +65,9 @@ export default {
   },
 
   computed: {
-    ...mapState({
-      errors: (state) => state.auth.errors,
+    ...mapGetters({
+      errors: 'auth/errorsMessage'
     }),
   },
 };
-
-/*
-eslint
-  vuejs-accessibility/form-control-has-label:0
-*/
 </script>

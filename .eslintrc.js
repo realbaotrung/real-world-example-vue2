@@ -16,6 +16,7 @@ module.exports = {
     parser: '@babel/eslint-parser',
   },
   rules: {
+    'vuejs-accessibility/form-control-has-label': 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'prettier/prettier': 0,
@@ -23,7 +24,7 @@ module.exports = {
     'no-plusplus': 0,
     'no-useless-concat': 0,
     'import/prefer-default-export': 0,
-    'no-param-reassign': 0
+    'no-param-reassign': 0,
   },
   overrides: [
     {

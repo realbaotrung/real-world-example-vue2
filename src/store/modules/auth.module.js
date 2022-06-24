@@ -25,6 +25,10 @@ export default {
     isAuthenticated(state) {
       return state.isAuthenticated;
     },
+
+    errorsMessage(state) {
+      return state.errors;
+    }
   },
 
   mutations: {

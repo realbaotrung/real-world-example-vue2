@@ -60,9 +60,4 @@ export default {
     }
   }
 };
-
-/*
-eslint
-  vuejs-accessibility/form-control-has-label: 0
-*/
 </script>
