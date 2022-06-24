@@ -84,8 +84,9 @@ export default {
     },
 
     async checkAuth({commit}) {
+      console.log('token', getItemFromLS(storageItem.ID_TOKEN_KEY));
       if (!getItemFromLS(storageItem.ID_TOKEN_KEY)) {
-        commit('PURGE_AUTH');
+        // commit('PURGE_AUTH');
         return;
       }
       try {

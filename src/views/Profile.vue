@@ -90,8 +90,8 @@ export default {
     }),
 
     isCurrentUser() {
-      if (this.currentUser.username && this.article.author.username) {
-        return this.currentUser.username === this.article.author.username;
+      if (this.currentUser.username && this.profile.username) {
+        return this.currentUser.username === this.profile.username;
       }
       return false;
     },
