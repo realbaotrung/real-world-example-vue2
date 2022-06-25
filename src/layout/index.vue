@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import RwvTheHeader from './TheHeader.vue';
-import RwvTheFooter from './TheFooter.vue';
+import RwvTheHeader from './TheHeader';
+import RwvTheFooter from './TheFooter';
 
 export default {
   name: 'AppLayout',

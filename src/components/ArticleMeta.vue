@@ -36,7 +36,7 @@
 
 <script>
 import {mapGetters} from 'vuex';
-import RwvArticleActions from '@/components/ArticleActions.vue';
+import RwvArticleActions from '@/components/ArticleActions';
 
 export default {
   name: 'rwv-article-meta',

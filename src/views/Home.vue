@@ -58,7 +58,7 @@
 
 <script>
 import {mapGetters} from 'vuex';
-import RwvTag from '@/components/VTag.vue';
+import RwvTag from '@/components/VTag';
 
 export default {
   name: 'rwv-home',

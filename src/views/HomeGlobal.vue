@@ -3,10 +3,11 @@
 </template>
 
 <script>
-import RwvArticleList from '@/components/ArticleList.vue'
+import RwvArticleList from '@/components/ArticleList'
 
 export default {
   name: 'rwv-home-global',
   components: {RwvArticleList},
 };
+/* eslint import/extensions:0 */
 </script>

@@ -55,10 +55,10 @@ import {mapGetters} from 'vuex';
 import store from '@/store';
 import {marked} from 'marked';
 
-import RwvArticleMeta from '@/components/ArticleMeta.vue';
-import RwvComment from '@/components/Comment.vue';
-import RwvCommentEditor from '@/components/CommentEditor.vue';
-import RwvVTag from '@/components/VTag.vue';
+import RwvArticleMeta from '@/components/ArticleMeta';
+import RwvComment from '@/components/Comment';
+import RwvCommentEditor from '@/components/CommentEditor';
+import RwvVTag from '@/components/VTag';
 
 export default {
   name: 'rwv-article',

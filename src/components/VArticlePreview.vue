@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import RwvArticleMeta from './ArticleMeta.vue';
-import RwvTagList from './TagList.vue';
+import RwvArticleMeta from './ArticleMeta';
+import RwvTagList from './TagList';
 
 export default {
   name: 'rwv-article-preview',

@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import RwvListErrors from '@/components/ListErrors.vue';
+import RwvListErrors from '@/components/ListErrors';
 import store from '@/store';
 
 export default {

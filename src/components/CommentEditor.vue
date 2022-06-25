@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import RwvListErrors from '@/components/ListErrors.vue';
+import RwvListErrors from '@/components/ListErrors';
 
 // TODO: Fix bug :
 // 1. After create a new Article, we go to the route .../article/new-article-has-created
