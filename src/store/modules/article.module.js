@@ -1,19 +1,21 @@
 import {ArticlesService, CommentsService, FavoriteService} from '@/services';
 
+const defaultState = {
+  article: {
+    author: {},
+    title: '',
+    description: '',
+    body: '',
+    tagList: [],
+  },
+
+  comments: [],
+};
+
 export default {
   namespaced: true,
 
-  state: {
-    article: {
-      author: {},
-      title: '',
-      description: '',
-      body: '',
-      tagList: [],
-    },
-
-    comments: [],
-  },
+  state: {...defaultState},
 
   getters: {
     article(state) {
@@ -45,15 +47,8 @@ export default {
     },
 
     RESET_STATE(state) {
-      state.article = {
-        author: {},
-        title: '',
-        description: '',
-        body: '',
-        tagList: [],
-      };
-
-      state.comments = [];
+      state.article = {...defaultState.article};
+      state.comment = defaultState.comments;
     },
   },
 
