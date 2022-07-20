@@ -42,8 +42,8 @@ export default {
       state.isLoading = false;
     },
 
-    SET_TAGS(state, tags) {
-      state.tags = tags;
+    SET_TAGS(state, payload) {
+      state.tags = payload;
     },
 
     UPDATE_ARTICLE_IN_LIST(state, payload) {
@@ -51,6 +51,7 @@ export default {
         if (article.slug !== payload.slug) {
           return article;
         }
+        // TODO: review the state change
         // We could just return data, but it seems dangerous to
         // mix the results of different api calls, so we
         // protect ourselves by copying the information.

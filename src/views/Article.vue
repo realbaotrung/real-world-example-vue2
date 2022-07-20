@@ -9,8 +9,7 @@
     <div class="container page">
       <div class="row article-content">
         <div class="col-xs-12">
-          <div v-html="parseMarkdown(article.body)">
-          </div>
+          <div v-html="parseMarkdown(article.body)"></div>
           <ul class="tag-list">
             <li v-for="(tag, index) of article.tagList" :key="tag + index">
               <RwvVTag
@@ -55,10 +54,10 @@ import {mapGetters} from 'vuex';
 import store from '@/store';
 import {marked} from 'marked';
 
-import RwvArticleMeta from '@/components/ArticleMeta';
-import RwvComment from '@/components/Comment';
-import RwvCommentEditor from '@/components/CommentEditor';
-import RwvVTag from '@/components/VTag';
+import RwvArticleMeta from '@/components/ArticleMeta.vue';
+import RwvComment from '@/components/Comment.vue';
+import RwvCommentEditor from '@/components/CommentEditor.vue';
+import RwvVTag from '@/components/VTag.vue';
 
 export default {
   name: 'rwv-article',
