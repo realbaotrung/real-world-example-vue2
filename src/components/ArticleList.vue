@@ -25,9 +25,9 @@
 
 <script>
 import {mapGetters} from 'vuex';
-import RwvArticlePreview from '@/components/VArticlePreview';
+import RwvArticlePreview from '@/components/VArticlePreview.vue';
 // eslint-disable-next-line import/extensions
-import RwvVPagination from '@/components/VPagination';
+import RwvVPagination from '@/components/VPagination.vue';
 
 export default {
   name: 'rwv-article-list',

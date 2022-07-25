@@ -14,8 +14,10 @@ module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@babel/eslint-parser',
+    sourceType: "module",
   },
   rules: {
+    'import/no-extraneous-dependencies' : 0,
     'vuejs-accessibility/click-events-have-key-events': 0,
     'vuejs-accessibility/form-control-has-label': 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -31,7 +33,7 @@ module.exports = {
   overrides: [
     {
       files: [
-        '**/__tests__/*.{j,t}s?(x)',
+        '**/__tests__/*.spec.{j,t}s?(x)',
         '**/tests/unit/**/*.spec.{j,t}s?(x)',
       ],
       env: {

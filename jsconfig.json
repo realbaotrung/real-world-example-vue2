@@ -22,6 +22,6 @@
     "src/**/*.jsx",
     "src/**/*.vue",
     "tests/**/*.js",
-    "src/**/*.jsx",
+    "src/**/*.jsx", "src/__tests__/router.spec.js",
   ]
 }

@@ -13,7 +13,7 @@
             <ul class="nav nav-pills outline-active">
               <li v-if="isAuthenticated" class="nav-item">
                 <router-link
-                  :to="{ name: 'home-my-feed' }"
+                  :to="{name: 'home-my-feed'}"
                   class="nav-link"
                   active-class="active"
                 >
@@ -22,7 +22,7 @@
               </li>
               <li class="nav-item">
                 <router-link
-                  :to="{ name: 'home' }"
+                  :to="{name: 'home'}"
                   exact
                   class="nav-link"
                   active-class="active"
@@ -32,7 +32,7 @@
               </li>
               <li class="nav-item" v-if="tag">
                 <router-link
-                  :to="{ name: 'home-tag', params: { tag } }"
+                  :to="{name: 'home-tag', params: {tag}}"
                   class="nav-link"
                   active-class="active"
                 >
@@ -58,7 +58,7 @@
 
 <script>
 import {mapGetters} from 'vuex';
-import RwvTag from '@/components/VTag';
+import RwvTag from '@/components/VTag.vue';
 
 export default {
   name: 'rwv-home',

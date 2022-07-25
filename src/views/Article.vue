@@ -81,9 +81,7 @@ export default {
     Promise.all([
       store.dispatch('article/fetchArticle', to.params.slug),
       store.dispatch('article/fetchComments', to.params.slug),
-    ]).then(() => {
-      next();
-    });
+    ]).then(next);
   },
 
   computed: {
