@@ -17,6 +17,8 @@ describe('Posts.vue', () => {
 
     // Create Store and Router
     const store = createStore(storeState);
+    store.dispatch = jest.fn();
+
     const router = createRouter();
 
     return mount(component, {
@@ -34,7 +36,9 @@ describe('Posts.vue', () => {
 
     console.log(wrapper.html());
 
-    expect(wrapper.find('[data-testid="message"]').text()).toContain(message);
+    expect(wrapper.find('[data-testid="message"]').element).toHaveTextContent(
+      message,
+    );
 
     expect(wrapper.find('#message').text()).toBe(message);
   });
@@ -53,12 +57,48 @@ describe('Posts.vue', () => {
       'Post',
     );
   });
-  // it('renders posts', async () => {
-  // const message = 'New content coming soon!';
 
-  // const wrapper = createWrapper(Posts, {propsData: {message}});
-  // wrapper.vm.$store.commit('ADD_POSTS', [{id: 1, title: 'Post'}]);
-  // await wrapper.vm.$nextTick();
-  // expect(wrapper.findAll('[data-testid="post"]').length).toBe(1);
-  // });
+  it('Dispatch a auth/authenticated when first load component', async () => {
+    const wrapper = createWrapper(Posts);
+    expect(wrapper.vm.$store.dispatch).toHaveBeenCalledWith('auth/authenticated')
+  })
+
+  it('Not authenticated and not show link', async () => {
+    const wrapper = createWrapper(Posts);
+    expect(wrapper.find('[data-testid="new-post"]').exists()).toBe(false);
+  });
+
+  it('Authenticated and show link', async () => {
+    const message = 'New Post';
+    // const router = createRouter();
+    // const mockStore = {
+    //   getters: {
+    //     authenticated: () => true,
+    //   },
+    //   state: {
+    //     posts: [],
+    //   },
+    //   dispatch: jest.fn()
+    // };
+
+    // const wrapper = mount(Posts, {
+    //   mocks: {
+    //     $store: mockStore,
+    //   },
+    //   router,
+    // });
+
+    const wrapper = createWrapper(Posts, {
+      computed: {
+        authenticated: () => true
+      }
+    })
+
+    console.log(wrapper.find('[data-testid="new-post"]').html());
+    
+    expect(wrapper.find('[data-testid="new-post"]').element).toHaveTextContent(
+      message,
+    );
+
+  });
 });

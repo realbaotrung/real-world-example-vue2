@@ -2,8 +2,8 @@
   <div>
     <div id="message" data-testid="message" v-if="message">{{ message }}</div>
 
-    <div v-if="authenticated">
-      <router-link class="new-post" to="/posts/new"> New Post </router-link>
+    <div v-if="authenticated" data-testid="new-post">
+      <router-link class="new-post" to="/posts/new">New Post</router-link>
     </div>
 
     <h1>Posts</h1>
@@ -25,7 +25,7 @@ export default {
 
   computed: {
     authenticated() {
-      return this.$store.state.authenticated;
+      return this.$store.getters.authenticated;
     },
 
     posts() {
@@ -38,5 +38,9 @@ export default {
       return `/posts/${id}`;
     },
   },
+
+  created() {
+    this.$store.dispatch("auth/authenticated")
+  }
 };
 </script>
