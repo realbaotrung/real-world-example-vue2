@@ -17,7 +17,9 @@ describe('Posts.vue', () => {
 
     // Create Store and Router
     const store = createStore(storeState);
+    // Create mock dispatch function
     store.dispatch = jest.fn();
+    store.commit = jest.fn();
 
     const router = createRouter();
 
@@ -52,10 +54,11 @@ describe('Posts.vue', () => {
       },
     );
 
-    expect(wrapper.findAll('[data-testid="post"]').length).toBe(1);
-    expect(wrapper.findAll('[data-testid="post"]').at(0).text()).toContain(
-      'Post',
-    );
+    // expect(wrapper.findAll('[data-testid="post"]').length).toBe(1);
+
+    // Both are equal same:
+    // expect(wrapper.findAll('[data-testid="post"]').at(0).text()).toContain('Post');
+    expect(wrapper.findAll('[data-testid="post"]').at(0).element).toHaveTextContent('Post');
   });
 
   it('Dispatch a auth/authenticated when first load component', async () => {
@@ -70,6 +73,10 @@ describe('Posts.vue', () => {
 
   it('Authenticated and show link', async () => {
     const message = 'New Post';
+  
+    // ==========================================================
+    // Remember when Using Mocking technic, cannot have LocalVue
+    // ==========================================================
     // const router = createRouter();
     // const mockStore = {
     //   getters: {
